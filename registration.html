@@ -1,0 +1,78 @@
+!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+	<input type="text" name="name" id="name">
+	<select id="gender">
+		<option value="">--</option>
+		<option value="male">M</option>
+		<option value="female">F</option>
+	</select>
+	<input type="text" name="email" id="email">
+	<input type="text" name="mobile" id="mobile">
+	<hr>
+	<h1 id="dName">NAME</h1>
+	<h2 id="dGender">GENDER</h2>
+	<h3 id="dEmail">EMAIL</h3>
+	<h4 id="dMobile">MOBILE</h4>
+	<hr>
+	<button onclick="showName()">NAME</button>
+	<button onclick="showGender()">GENDER</button>
+	<button onclick="showEmail()">EMAIL</button>
+	<button onclick="showMobile()">MOBILE</button>
+	<button onclick="resetForm()">RESET FORM</button>
+	<button onclick="resetDisplay()">RESET DISPLAY</button>
+	<script type="text/javascript">
+        
+		function showName() {
+			// Show filled name inside h1
+			let hone=document.getElementById("dName")
+        	let inone=document.getElementById("name")
+            hone.innerText = inone.value;
+		}
+
+        
+		function showGender() {
+			// Show the selected gender inside h2
+			let htwo=document.getElementById("dGender")
+       		 let intwo=document.getElementById("gender")
+            htwo.innerText = intwo.value;
+		}
+
+        
+		function showEmail() {
+			// Show the filled email inside h3
+			let hthree = document.getElementById("dEmail")
+        	let inthree = document.getElementById("email")
+            hthree.innerText = inthree.value;
+		}
+
+        
+		function showMobile() {
+			// Show the filled mobile inside h4
+			let hfour = document.getElementById("dMobile")
+       		 let infour = document.getElementById("mobile")
+            hfour.innerText = infour.value;
+		}
+
+		function resetForm() {
+			// Reset all the form elements to default values (blank "")
+            inone.value = "";
+            intwo.value = "";
+            inthree.value = "";
+            infour.value = "";
+		}
+
+		function resetDisplay() {
+			// Reset all the headings (h1, h2, h3, h4) to blank values
+            hone.innerText = "NAME";
+            htwo.innerText = "Gender";
+            hthree.innerText = "Email";
+            hfour.innerText = "MOBILE";
+		}
+	</script>
+</body>
+</html>
+<!-- Complete all the functions by creating a copy of the above template with the file name registration.html -->

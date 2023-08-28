@@ -28,10 +28,10 @@ When user enter 8 and 4 and clicks on Divide button,an alert should come with 2 
     <input type="number" id="inp2"placeholder="Enter 2nd Number">
     <br>
     <br>
-    <button onclick="add">Add</button>
-    <button onclick="subtract">Subtract</button>
-    <button onclick="multiply">Multiply</button>
-    <button onclick="divide">Divide</button>
+    <button onclick="add()">Add</button>
+    <button onclick="subtract()">Subtract</button>
+    <button onclick="multiply()">Multiply</button>
+    <button onclick="divide()">Divide</button>
     <br>
     <h2 id="answer">answer</h2>
 </body>
@@ -45,7 +45,7 @@ let ans = document.getElementById("answer")
 
 function add()
 {
-   ans.innerText = first.value + second.value; 
+   ans.innerText = +first.value + +second.value; 
 }
 
 function subtract()
