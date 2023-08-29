@@ -1,0 +1,50 @@
+<!-- The assignment takes only 5-10 mins to complete, make sure complete the assignment before coming to next session.
+Push the code into your masai repo in You folder.
+Title: Capturing and Displaying Form Data using DOM Manipulation
+Objective: In this task, you will create a dynamic form using HTML, JavaScript, and the Document Object Model (DOM).
+The form will include an input tag and a button. After clicking the button, an alert will be displayed, and the entered data will be shown on the webpage.
+Instructions:
+Set up the HTML structure:
+Add an input field:
+Inside the body tag, create an input element with the following attributes:
+type="text": Specifies that the input should be a text field.
+id="myInput": Assigns an identifier to the input field for later manipulation.
+Add a button:
+Below the input field, create a button element with the following attribute:
+id="myButton": Assigns an identifier to the button for later manipulation.
+Set the button's innerHTML to "Submit" or any other appropriate label.
+Whenever the user clicked on the submit button user got an alert entered value and below the button, you should see the entered value displayed on the webpage.
+Test the form:
+Open your HTML file in a web browser.
+Enter some text into the input field.
+Click the submit button.
+An alert should appear, displaying the entered value.
+Below the button, you should see the entered value displayed on the webpage.
+After getting the alert your final output look like this -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="myInput">
+    <button onclick="show()" id="myButton">Submit</button>
+    <br>
+    <div><h3>Entered value:<h3 id="output"></h3></h3></div> 
+   
+</body>
+<script>
+
+function show()
+{
+    let in1 = document.getElementById("myInput").value
+
+    alert(in1)
+
+    document.getElementById("output").innerText = document.getElementById("myInput").value;
+}
+
+</script>
+</html>
