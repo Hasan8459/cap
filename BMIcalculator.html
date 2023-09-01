@@ -1,0 +1,66 @@
+<!-- Create an application which calculates BMI (Body Mass Index)
+Your app should have 2 input boxes
+Take weight in kgs from user
+Take height in meters from user
+Based on entered height and weight calculate BMI of that person
+Here is the formula for manually calculating BMI  BMI = (weight) / (height * height)
+From the obtained BMI result, display whether the person is
+UnderWeight - bmi <= 18.4
+Normal Weight - bmi >= 18.5 && bmi <= 24.9
+Overweight - bmi >= 25 && bmi <= 29.9
+Obese - bmi >= 30
+Hint: use If conditions -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Check your BMI</h1>
+    <h2>Enter your weight and height below to check your BMI results</h2>
+    <br>
+    <h2>Put your weight here in (KG) </h2>
+    <input id="inputfirst" type="text">
+    <br>
+    
+    <h2>Put your height here in (CM) </h2>
+    <input id="inputsec" type="text">
+    <br>
+    <br>
+    <br>
+    <button >Calcultae Your BMI</button>
+    <br>
+    <h2 id="out" ></h2>
+    
+</body>
+
+<script>
+    let getbut = document.querySelector("button")
+    getbut.addEventListener("click",function()
+    {
+        let inone = document.getElementById("inputfirst")
+        let intwo = document.getElementById("inputsec")
+        let output = document.getElementById("out")
+        let bmi = Number((inone.value) / (intwo.value * intwo.value))
+        if(bmi <= 18.4)
+        {
+            output.innerText = "Your BMI is "+bmi +"which means You are Underweight"
+        }
+        else if(bmi >= 18.5 && bmi <= 24.9)
+        {
+            output.innerText = "Your BMI is "+bmi +"which means You are Normal weight"
+        }
+        else if(bmi >= 25   && bmi <= 29.9)
+        {
+            output.innerText = "Your BMI is "+bmi+"which means You are Overweight"
+        }
+        else if(bmi >= 30)
+        {
+            output.innerText = "Your BMI is "+bmi+"which means You are Obese"
+        }
+
+    })
+</script>
+</html>
