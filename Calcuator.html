@@ -1,0 +1,82 @@
+<!-- Complete the functionality part of Masai calculator -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #keys{
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+    }
+  </style>
+</head>
+<body>
+  <input type="text" id="inputget">
+  <br><br>
+  <br><br>
+  <div class="keysget">
+    <button>1</button>
+    <button>2</button>
+    <button>3</button>
+    <button>4</button>
+    <button>5</button>
+    <button>6</button>
+    <button>7</button>
+    <button>8</button>
+    <button>9</button>
+    <button>0</button>
+  </div>
+  <br><br>
+  <br><br>
+  <div class="bodmasget">
+    <button>+</button>
+    <button>-</button>
+    <button>*</button>
+    <button>/</button>
+  </div>
+  <br><br>
+  <button id="equltoget">=</button>
+  <input type="text" id="outputget">
+</body>
+<script>
+    let inputgot = document.getElementById("inputget")
+    let keysgot = document.querySelectorAll(".keysget>button")
+    let equltogot = document.getElementById("equltoget")
+    let answergot = document.getElementById("outputget")
+    let bodmasgot = document.querySelectorAll(".bodmasget>button")
+
+    for(let i=0; i<keysgot.length; i++)
+    {
+      keysgot[i].addEventListener("click",function()
+      {
+        inputgot.value += keysgot[i].innerText
+      }
+    )}
+
+    for(let j=0; j<bodmasgot.length; j++)
+    {
+      bodmasgot[j].addEventListener("click",function()
+      {
+        
+        let checking = inputgot[inputgot.length-1]
+        
+        if(checking !== "+" || checking !== "-" || checking !== "*" || checking !== "/" )
+        {
+          inputgot.value += bodmasgot[j].innerText
+        }
+        else if(checking === "+" || checking === "-" || checking === "*" || checking === "/" )
+        {
+          inputgot[inputgot.length-1] = bodmasgot[j].innerText
+        }
+      } )
+    }
+
+    equltogot.addEventListener("click",function()
+    {
+      answergot.value = Number(inputgot.value)
+    })
+
+</script>
+</html>
