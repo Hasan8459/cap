@@ -46,46 +46,49 @@ form.addEventListener("submit",function(notrefresh)
         td5make.innerText = ele.emai;
         td6make.innerText = ele.mobile;
 
-        // const td7make = document.createElement("td")
-        // let td7Ans = checkpost(ele.expe)
-        // td7make.innerText = td7Ans
+        const td7make = document.createElement("td")
+        let td7Ans = checkpost(ele.expe)
+        td7make.innerText = td7Ans
 
-        // const td7make = document.createElement("td")
-        // if(ele.expe > 5)
-        // {
-        //     td7make.innerText = "Senior"
-        // }
-        // else if(ele.expe >= 2 && obj.expe <= 5)
-        // {
-        //     td7make.innerText = "Junior"
-        // }
-        // else if (ele.expe <= 1)
-        // {
-        //     td7make.innerText = "Fresher"
-        // }
+        
+        const td8make = document.createElement("button")
+        td8make.innerText = "Delete";
 
-        // const td8make = document.createElement("button")
-        // td8make.hasAttribute()
-       
-        trmake.append(td1make,td2make,td3make,td4make,td5make,td6make)
+        td8make.addEventListener("click",function()
+        {
+            td1make.innerText = "";
+            td2make.innerText = "";
+            td3make.innerText = "";
+            td4make.innerText = "";
+            td5make.innerText = "";
+            td6make.innerText = "";
+            td7make.innerText = "";
+            td8make.innerText = "";   
+        })
+
+        trmake.append(td1make,td2make,td3make,td4make,td5make,td6make,td7make,td8make)
 
         tablebody.append(trmake)
     })
 
 })
 
-// function checkpost(experience)
-// {
-//     if(experience > 5)
-//     {
-//         td7make.innerText = "Senior"
-//     }
-//     else if(experience >= 2 && obj.expe <= 5)
-//     {
-//         td7make.innerText = "Junior"
-//     }
-//     else if (experience <= 1)
-//     {
-//         td7make.innerText = "Fresher"
-//     }
-// }
+function checkpost(experience)
+{
+    if(experience > 5)
+    {
+        // td7make.innerText = "Senior"
+        return "Senior"
+
+    }
+    else if(experience >= 2 && obj.expe <= 5)
+    {
+        // td7make.innerText = "Junior"
+        return "Junior"
+    }
+    else if (experience <= 1)
+    {
+        // td7make.innerText = "Fresher"
+        return "Fresher"
+    }
+}
