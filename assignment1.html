@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>constructor function</h1>
+</body>
+<!-- Create constructor functions for Book and Author to represent books and authors.
+The Author constructor should take name, birthYear, and nationality as arguments.
+The Book constructor should take title, author (an Author object), genre, and price as arguments.
+Implement methods in the Book prototype:
+getBookInfo - to print the book's title, author's name, genre, and price.
+Create an online bookstore by creating instances of Book and Author objects.
+Display the book details for each book in the bookstore.
+Submit your GitHub link after completing the problem. -->
+
+<script>
+     
+    
+
+     function Author(name,birthYear,nationality)
+     {
+        this.name = name;
+        this.birthYear = birthYear;
+        this.nationality = nationality;
+     }
+
+
+
+     function Book(title,author,genre,price)
+     {
+        
+        this.title = title;
+        this.genre = genre;
+        this.price = price;
+
+      getBookInfo = function()
+      {
+         // console.log(`Title of book is${this.title} and author name is ${this.name}, genre${this.genre}, price${this.price}`)
+        console.log(this)
+      }
+        
+     }
+
+
+
+     let auth1 = new Author("James",2000,"American")
+   //   let auth2 = new Author("Harry",2001,"Russia")
+
+     let book1 = new Book.call(auth1,"Atomic Habits",7,700)
+   //   let book2 = new Book.call(Author,"Harry Potter",5,500)
+
+     
+
+
+</script>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Automobile Inheritance Model</h1>
+
+    <!-- <p>Problem Statement :-
+        You have been appointed as senior developer in Tata’s R&D department. The engineers there are lazy, they don’t want to do everything from scratch whenever they create a new model. They expect you to help them create an inheritance model for the automobiles.
+        
+        Description :-
+        Implement an inheritance model for four wheeler automobiles.
+        Implement using both object.create() and constructor functions().
+        Think of properties of what can be inherited.</p> -->
+</body>
+<script>
+
+    function FirstModel(speed,mialeage,horn,battery)
+    {
+        this.speed = speed;
+        this.mialeage = mialeage;
+        this.horn = horn;
+        this.battery = battery
+    }
+
+    FirstModel.prototype.getSpeed = function()
+    {
+        console.log(`Speed is ${this.speed}`)
+    }
+
+    FirstModel.prototype.PlayHorn = function()
+    {
+        console.log(`horn is playing ${this.horn} `)
+    }
+
+    let jaguar = new FirstModel(200,15,"poooooooooo",50000)
+
+    
+    function SecondModel(speed,mialeage,horn,battery,protection,suspension)
+    {
+         FirstModel.call(this,speed,mialeage,horn,battery)
+        SecondModel = Object.create(FirstModel)
+
+        this.protection = protection;
+        this.suspension = suspension;
+    }
+
+      SecondModel.prototype = FirstModel.prototype
+
+    SecondModel.prototype.SecrutyAlert = function()
+    {
+        console.log(`There is avalaible ${this.protection}`)
+    }
+
+    SecondModel.prototype.OnSimpleRoad = function()
+    {
+        console.log(`Everything is going very well ${this.suspension}`)
+    }
+
+    let JaguarNew = new SecondModel(120,25,"pop",7000,"Safety","Very well")
+
+     console.log(SecondModel)
+    JaguarNew.PlayHorn();
+    JaguarNew.SecrutyAlert();
+    
+</script>
+</html>
