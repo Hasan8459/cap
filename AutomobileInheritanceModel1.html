@@ -38,17 +38,21 @@
 
     let jaguar = new FirstModel(200,15,"poooooooooo",50000)
 
+
+
+    
+
     
     function SecondModel(speed,mialeage,horn,battery,protection,suspension)
     {
-         FirstModel.call(this,speed,mialeage,horn,battery)
         SecondModel = Object.create(FirstModel)
+          FirstModel.call(this,speed,mialeage,horn,battery)
+        
 
         this.protection = protection;
         this.suspension = suspension;
     }
-
-      SecondModel.prototype = FirstModel.prototype
+    
 
     SecondModel.prototype.SecrutyAlert = function()
     {
@@ -62,9 +66,9 @@
 
     let JaguarNew = new SecondModel(120,25,"pop",7000,"Safety","Very well")
 
-     console.log(SecondModel)
-    JaguarNew.PlayHorn();
-    JaguarNew.SecrutyAlert();
+     console.log(JaguarNew)
+    // JaguarNew.PlayHorn();
+    // JaguarNew.SecrutyAlert();
     
 </script>
 </html>

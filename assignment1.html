@@ -30,17 +30,17 @@ Submit your GitHub link after completing the problem. -->
 
 
 
-     function Book(title,author,genre,price)
+     function Book(auth,title,genre,price)
      {
-        
+      // Author.call(this,name,birthYear,nationality)
+        // this.auth = auth;
         this.title = title;
         this.genre = genre;
         this.price = price;
 
-      getBookInfo = function()
+      this.getBookInfo = function()
       {
-         // console.log(`Title of book is${this.title} and author name is ${this.name}, genre${this.genre}, price${this.price}`)
-        console.log(this)
+         console.log(`Title of book is${this.title} and author name is ${this.name}, genre${this.genre}, price${this.price}`)
       }
         
      }
@@ -50,10 +50,10 @@ Submit your GitHub link after completing the problem. -->
      let auth1 = new Author("James",2000,"American")
    //   let auth2 = new Author("Harry",2001,"Russia")
 
-     let book1 = new Book.call(auth1,"Atomic Habits",7,700)
+     let book1 = new Book(auth1,"Atomic Habits",7,700)
    //   let book2 = new Book.call(Author,"Harry Potter",5,500)
 
-     
+     book1.getBookInfo()
 
 
 </script>

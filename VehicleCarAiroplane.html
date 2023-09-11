@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Vehicle Car Airoplane </h1>
+    <h2>Making by constructor and prototype</h2>
+   
+</body>
+<script>
+ //     Create a basic Vehicle constructor function that initializes properties like brand, model, speed, and fuelType.
+
+ // Using the prototype, add common methods to the Vehicle object like accelerate(), brake(), and refuel().
+
+ // accelerate() should increase the speed of the vehicle.
+ // brake() should decrease the speed.
+ // refuel() should log a message indicating the vehicle is refueling.
+
+    function Vehicle(brand,model,speed,fuelType)
+    {
+        this.brand = brand;
+        this.model = model;
+        this.speed = speed;
+        this.fuelType = fuelType;
+    }
+
+    Vehicle.prototype.accelerate = function()
+    {
+        this.speed = this.speed + 10;
+        console.log(this.speed)
+    }
+
+    Vehicle.prototype.brake = function()
+    {
+        this.speed = this.speed - 10;
+        console.log(this.speed)
+    }
+
+    Vehicle.prototype.refuel = function()
+    {
+        console.log(`vehicle is refueling and it get ${this.fuelType}`)
+    }
+
+    let veh1 = new Vehicle("Vehicle",4,250,"full")
+
+    
+ // Now, create a Car constructor function. The Car function should inherit properties and methods from the Vehicle object. Additionally, Car should have an extra property numberOfWheels and a method honk() that logs a honking sound.
+            
+    function Car(brand,model,speed,fuelType,numberOfWheels)
+    {
+        Vehicle.call(this,brand,model,speed,fuelType)
+
+        this.numberOfWheels = numberOfWheels;
+    }
+
+     Object.setPrototypeOf(Car.prototype,Vehicle.prototype)
+
+    Car.prototype.numberOfWheels = function()
+    {
+        console.log(`Number of Wheels of ${this.brand} car`)
+    }
+
+    Car.prototype.honk = function()
+    {
+        console.log(`For the alert po po po po`)
+    }
+
+    let car2 = new Car("Jaguar",5,400,"full",6)
+    console.log(car2)
+
+ // Similarly, create an Airplane constructor function that inherits from Vehicle. It should have properties numberOfEngines and hasLandingGear and a method takeOff() that logs a message indicating the airplane is taking off.
+            
+ //     Show how you would create a new instance of Car and Airplane, and demonstrate invoking their methods, ensuring that both types of vehicles can still accelerate, brake, and refuel through their prototype chain.
+
+    function Airoplane(brand,model,speed,fuelType,numberOfEngines,hasLandingGear)
+    {
+        Vehicle.call(this,brand,model,speed,fuelType)
+
+        this.numberOfEngines = numberOfEngines;
+        this.hasLandingGear = hasLandingGear;
+    }
+
+    Object.setPrototypeOf(Airoplane.prototype,Vehicle.prototype)
+
+    Airoplane.prototype.takeoff = function()
+    {
+        console.log(`The airoplane is taking off`);
+    }
+
+    Airoplane.prototype.numberOfEngines = function()
+    {
+        console.log(`${this.numberOfEngines} engines are avalaible in ${this.brand}`)
+    }
+
+    Airoplane.prototype.hasLandingGear = function()
+    {
+        console.log(`In airoplane avalaible is ${this.hasLandingGear}`)
+    }
+
+    let airo1 = new Airoplane("Vistara","1st",9000,"full",2,5)
+
+    console.log(airo1)
+</script>
+</html>
