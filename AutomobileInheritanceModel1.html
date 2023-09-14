@@ -40,31 +40,31 @@
 
 
 
-    
+    let SecondModel = Object.create(FirstModel)
 
     
-    function SecondModel(speed,mialeage,horn,battery,protection,suspension)
-    {
-        SecondModel = Object.create(FirstModel)
-          FirstModel.call(this,speed,mialeage,horn,battery)
-        
+    // function SecondModel(speed,mialeage,horn,battery,protection,suspension)
+    // {
+    //     // SecondModel = Object.create(FirstModel)
+    //     //   FirstModel.call(this,speed,mialeage,horn,battery)
+    //     SecondModel = Object.create(FirstModel)
 
-        this.protection = protection;
-        this.suspension = suspension;
-    }
+    //     this.protection = protection;
+    //     this.suspension = suspension;
+    // }
     
 
-    SecondModel.prototype.SecrutyAlert = function()
-    {
-        console.log(`There is avalaible ${this.protection}`)
-    }
+    // SecondModel.prototype.SecrutyAlert = function()
+    // {
+    //     console.log(`There is avalaible ${this.protection}`)
+    // }
 
-    SecondModel.prototype.OnSimpleRoad = function()
-    {
-        console.log(`Everything is going very well ${this.suspension}`)
-    }
+    // SecondModel.prototype.OnSimpleRoad = function()
+    // {
+    //     console.log(`Everything is going very well ${this.suspension}`)
+    // }
 
-    let JaguarNew = new SecondModel(120,25,"pop",7000,"Safety","Very well")
+    let JaguarNew = new SecondModel(120,25,"pop",7000)   //,"Safety","Very well"
 
      console.log(JaguarNew)
     // JaguarNew.PlayHorn();

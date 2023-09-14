@@ -59,17 +59,19 @@
     {
       bodmasgot[j].addEventListener("click",function()
       {
+        let leng = inputgot.length;
+        let check = inputgot[leng-1]
         
-        let checking = inputgot[inputgot.length-1]
-        
-        if(checking !== "+" || checking !== "-" || checking !== "*" || checking !== "/" )
-        {
-          inputgot.value += bodmasgot[j].innerText
-        }
-        else if(checking === "+" || checking === "-" || checking === "*" || checking === "/" )
-        {
-          inputgot[inputgot.length-1] = bodmasgot[j].innerText
-        }
+      if(check != "+" || check != "-" || check != "*" || check != "/")
+      {
+        inputgot.value += bodmasgot[j].innerText;
+      }
+      else if(check === "+" || check === "-" || check === "*" || check === "/")
+      {
+        let last = inputgot.length-1;
+        inputgot[last] = bodmasgot[j].innerText
+      }
+
       } )
     }
 

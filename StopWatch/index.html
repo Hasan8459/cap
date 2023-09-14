@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2 id="ans">0</h2>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+</body>
+
+<script>
+    let start = document.getElementById("start")
+    let stop  = document.getElementById("stop")
+    let reset = document.getElementById("reset")
+
+    let answer = document.getElementById("ans")
+
+    start.addEventListener("click",function(e)
+    {
+        e.preventDefault();
+
+        for(let i=1; i<Infinity; i++)
+        {
+           answer.innerText += 1; 
+        }
+
+    })
+</script>
+</html>

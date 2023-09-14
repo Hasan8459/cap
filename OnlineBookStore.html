@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="AuthorInformat">
+      <input type="text" id="authorName"  placeholder="Enter Author name">
+      <input type="date" id="authorDOB"   placeholder=" Author Date Of Birth">
+      <br>
+      <input type="text" id="authorNation" placeholder="Enter Author Nationality">
+      <input type="submit"  >
+    </form>
+    <hr>
+    <form id="BookInformat">
+      <input type="text" name="" id="BookTitle" placeholder="Enter Book Title">
+      <input type="text" name="" id="BookGen" placeholder="Enter Book Genre">
+      <br>
+      <input type="number" name="" id="BookPrice" placeholder="Enter Book price">
+      <input type="submit" name="" >
+    </form>
+</body>
+<!-- Create constructor functions for Book and Author to represent books and authors.
+The Author constructor should take name, birthYear, and nationality as arguments.
+The Book constructor should take title, author (an Author object), genre, and price as arguments.
+Implement methods in the Book prototype:
+getBookInfo - to print the book's title, author's name, genre, and price.
+Create an online bookstore by creating instances of Book and Author objects.
+Display the book details for each book in the bookstore.
+Submit your GitHub link after completing the problem. -->
+
+<script>   
+    
+
+    
+     function Author(name,birthYear,nationality)
+     {
+        this.name = name;
+        this.birthYear = birthYear;
+        this.nationality = nationality;
+       
+     }
+    //  let auth1 = new Author("James",2000,"American")
+   //   let auth2 = new Author("Harry",2001,"Russia")
+
+     function Book(auth1,title,genre,price)
+     {
+        this.auth1 = auth1;
+        this.title = title;
+        this.genre = genre;
+        this.price = price;
+
+      // this.getBookInfo = function()
+      // {
+      //    console.log(`Title of book is${this.title} and author name is ${this.name}, genre${this.genre}, price${this.price}`)
+      // }
+        
+     }
+
+
+    //  let book1 = new Book(auth1.name,"Atomic Habits",7,700)
+   //   let book2 = new Book.call(Author,"Harry Potter",5,500)
+
+   let getform = document.querySelector("#AuthorInformat")
+
+   let arr = [];
+
+   getform.addEventListener("submit",function(e)
+   {
+    e.preventDefault();
+
+    let authName =  document.getElementById("authorName").value
+    let authDOB = document.getElementById("authorDOB").value
+    let authNation = document.getElementById("authorNation").value
+
+    let author1 = new Author(authName,authDOB,authNation)
+
+    arr.push(author1)
+    console.log(author1)
+
+    getform.reset();
+   })
+
+
+   const getform2 = document.querySelector("BookInformat")
+
+   getform2.addEventListener("submit",function(e)
+   {
+    e.preventDefault();
+    
+    let boName = document.getElementById("BookTitle").value
+    let boGenre = document.getElementById("BookGenre").value
+    let boPrice = document.getElementById("BookPrice").value
+
+    let Book1 = new Book(arr[0],boName,boGenre,boPrice)
+    
+    arr = [];
+
+    console.log(Book1)
+    
+    // getform2.reset();
+   })
+
+</script>
+</html>
