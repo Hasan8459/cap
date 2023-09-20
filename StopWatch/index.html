@@ -6,28 +6,55 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 id="ans">0</h2>
-    <button id="start">Start</button>
-    <button id="stop">Stop</button>
-    <button id="reset">Reset</button>
+    <div id="cont">
+        <h2 id="ans"></h2>
+    </div>
+    <button onclick="start()">Start</button>
+    <button onclick="stop()">Stop</button>
+    <button onclick="reset()">Reset</button>
 </body>
 
 <script>
-    let start = document.getElementById("start")
-    let stop  = document.getElementById("stop")
-    let reset = document.getElementById("reset")
+    let num=0;
+   let go;
 
-    let answer = document.getElementById("ans")
+   function start()
+   {
+        go = setInterval(()=>{
+            num = (num + 1);
+            showNumber(num);
+            console.log(num)
+        }, 1000)
+   }
 
-    start.addEventListener("click",function(e)
+
+   function showNumber(newnumber)
+   {
+    let htwo = document.getElementById('ans')
+    htwo.innerText = newnumber
+   }
+   
+    showNumber(num)
+
+    function stop()
     {
-        e.preventDefault();
+        clearInterval(go);
+    }
 
-        for(let i=1; i<Infinity; i++)
-        {
-           answer.innerText += 1; 
-        }
+    function reset()
+    {
+        stop();
+       
+        showNumber(0)
+        
+        let num = 0;
+        go = setInterval(()=>{
+            num = (num + 1);
+            showNumber(num);
+            console.log(num)
+        }, 1000)
+    }
 
-    })
+
 </script>
 </html>

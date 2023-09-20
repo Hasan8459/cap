@@ -26,48 +26,28 @@
         this.battery = battery
     }
 
-    FirstModel.prototype.getSpeed = function()
-    {
-        console.log(`Speed is ${this.speed}`)
-    }
+    // FirstModel.prototype.getSpeed = function()
+    // {
+    //     console.log(`Speed is ${this.speed}`)
+    // }
 
-    FirstModel.prototype.PlayHorn = function()
-    {
-        console.log(`horn is playing ${this.horn} `)
-    }
+    // FirstModel.prototype.PlayHorn = function()
+    // {
+    //     console.log(`horn is playing ${this.horn} `)
+    // }
 
     let jaguar = new FirstModel(200,15,"poooooooooo",50000)
 
 
 
-    let SecondModel = Object.create(FirstModel)
+    let  jaguar2 = Object.create(jaguar)
+        //  jaguar2.light = light;
 
-    
-    // function SecondModel(speed,mialeage,horn,battery,protection,suspension)
-    // {
-    //     // SecondModel = Object.create(FirstModel)
-    //     //   FirstModel.call(this,speed,mialeage,horn,battery)
-    //     SecondModel = Object.create(FirstModel)
+        
+    // let JaguarNew = new SecondModel(120,25,"pop",7000)   //,"Safety","Very well"
 
-    //     this.protection = protection;
-    //     this.suspension = suspension;
-    // }
-    
-
-    // SecondModel.prototype.SecrutyAlert = function()
-    // {
-    //     console.log(`There is avalaible ${this.protection}`)
-    // }
-
-    // SecondModel.prototype.OnSimpleRoad = function()
-    // {
-    //     console.log(`Everything is going very well ${this.suspension}`)
-    // }
-
-    let JaguarNew = new SecondModel(120,25,"pop",7000)   //,"Safety","Very well"
-
-     console.log(JaguarNew)
-    // JaguarNew.PlayHorn();
+     console.log(jaguar2)
+    console.log(jaguar2.PlayHorn)
     // JaguarNew.SecrutyAlert();
     
 </script>

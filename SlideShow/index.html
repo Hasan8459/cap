@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #slideshow {
+        width: 500px;
+        height: 300px;
+        overflow: hidden;
+        position: relative;
+    }
+    #slideshow img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+</style>
+<body>
+   <div class="container">
+    <div id="slideshow">
+        <img src="https://th.bing.com/th/id/OIP.UhgbyPpVRGHR6hlk7dCBYQHaHa?w=190&h=190&c=7&r=0&o=5&dpr=2&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.qJ24xXHXJKEtx9h-4_rZwAHaF7?w=208&h=166&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.bnE7EwJj3OIphLQm_LS29wHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.D4jKKY0XXXY2m1-sEoev3wHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.8jNgPypzXew2MK_7pdZ1ygHaF7?w=238&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.IQysE456bB6XJmezZt0XAQHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.lPo1OXVFR_it-OVx-tmHUgHaHa?w=195&h=195&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.KH-DHFOVLA0kq43lKymsowHaKe?w=208&h=294&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.EoaPgVZmTw0liwuh-fjH4wHaHa?w=208&h=208&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.gOhaabW_JkOpWobluvvi4gHaHa?w=183&h=182&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.NlM00Se7IHPBt-FtVkPFRQHaEv?w=293&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.Zg1HNL2sPeATNWpCAf4YfQHaEo?w=305&h=190&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.jUglB87X50Fl_0LgTFhA1gHaFj?w=249&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.ZZmmw8I0iSFtaIEY7_eSNwHaHQ?w=167&h=180&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.NZGuazz5wzUIqmKA0IokQAHaFd?w=255&h=188&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.MClIcmPETKWJb2203MnPMgHaHa?w=210&h=211&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.EJo_QRtsSYftAfPAEiMWpQHaHa?w=186&h=186&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP.ZVkIJDjhNmVC27puNcB6KwHaHa?w=206&h=206&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th/id/OIP._32H7Aqe-4dNbCLt-PMIugHaHa?w=187&h=187&c=7&r=0&o=5&dpr=1.3&pid=1.7" alt="">
+        <img src="https://th.bing.com/th?q=Cool+Number+20&w=120&h=120&c=1&rs=1&qlt=90&cb=1&dpr=1.3&pid=InlineBlock&mkt=en-IN&cc=IN&setlang=en&adlt=moderate&t=1&mw=247" alt="">
+    </div>
+    <button onclick="toggleSlideShow()">Start/Stop</button>
+    <button onclick="prevSlide()">Previous</button>
+    <button onclick="nextSlide()">Next</button>
+   </div>
+</body>
+
+<script>
+ let slides = document.querySelectorAll('#slideshow img');
+    let slideIndex = 0;
+    let slideInterval;
+    
+    function showSlide(index){
+        slides.forEach((slide,i)=>{
+            if(i === index){
+                slide.style.display = 'block';
+            }
+            else{
+                slide.style.display = 'none';
+            }
+        })
+    }
+    
+    // Automation Starts
+    
+    function startSlideShow(){
+        slideInterval = setInterval(()=>{
+            slideIndex = (slideIndex + 1)% slides.length;
+            showSlide(slideIndex);
+            console.log(slideIndex)
+        }, 2000)
+    }
+    
+    function stopSlideShow(){
+        clearInterval(slideInterval);
+    }
+    
+    
+    function toggleSlideShow(){
+        if(slideInterval){
+            stopSlideShow();
+            slideInterval = null;
+        }
+        else{
+            startSlideShow();
+        }
+    }
+    
+    
+    // Manual Process
+    function nextSlide(){
+        stopSlideShow();
+        slideIndex = (slideIndex + 1)% slides.length;
+        showSlide(slideIndex);
+    }
+    
+    function prevSlide(){
+        stopSlideShow();
+        // slideIndex = (slideIndex - 1)% slides.length;
+        // showSlide(slideIndex);
+        if(slideIndex === 0)
+        {
+            slideIndex = (slideIndex - 1)+ slides.length;
+            showSlide(slideIndex)
+        }
+        else{
+             slideIndex = (slideIndex - 1)% slides.length;
+            showSlide(slideIndex);
+        }
+    }
+    
+    
+    
+    
+    
+    showSlide(slideIndex);
+
+    // let slides = document.querySelectorAll("#slideshow img")
+    // let slideIndex=0;
+    // let slideInterval;
+    
+    // function showslide(index)
+    // {
+    //     slides.forEach((slide,i)=>
+    //     {
+    //         if(  i === index )
+    //         {
+    //             slide.style.display = "block";
+    //         }
+    //         else{
+    //             slide.display.none = "none";
+    //         }
+    //     })
+    // }
+
+    
+    // function startSlideshow()
+    // {
+    //    slideInterval = setInterval(()=>
+    //    {
+    //     slideIndex = (slideIndex + 1 ) % slides.length;
+
+    //     showslide(slideIndex)
+    //    },2000)
+    // }
+
+    // function Toggleslideshow() 
+    // {
+    //     startSlideshow()
+    // }
+</script>
+
+</html>
+
+ <!-- <p>
+//     let slides = document.querySelectorAll('#slideshow img');
+//     let slideIndex = 0;
+//     let slideInterval;
+    
+//     function showSlide(index){
+//         slides.forEach((slide,i)=>{
+//             if(i === index){
+//                 slide.style.display = 'block';
+//             }
+//             else{
+//                 slide.style.display = 'none';
+//             }
+//         })
+//     }
+    
+//     // Automation Starts
+    
+//     function startSlideShow(){
+//         slideInterval = setInterval(()=>{
+//             slideIndex = (slideIndex + 1)% slides.length;
+//             showSlide(slideIndex);
+//             console.log(slideIndex)
+//         }, 2000)
+//     }
+    
+//     function stopSlideShow(){
+//         clearInterval(slideInterval);
+//     }
+    
+    
+//     function toggleSlideShow(){
+//         if(slideInterval){
+//             stopSlideShow();
+//             slideInterval = null;
+//         }
+//         else{
+//             startSlideShow();
+//         }
+//     }
+    
+    
+//     // Manual Process
+//     function nextSlide(){
+//         stopSlideShow();
+//         slideIndex = (slideIndex + 1)% slides.length;
+//         showSlide(slideIndex);
+//     }
+    
+//     function prevSlide(){
+//         stopSlideShow();
+//         slideIndex = (slideIndex - 1)% slides.length;
+//         showSlide(slideIndex);
+//     }
+    
+    
+    
+    
+    
+//     showSlide(slideIndex);
+// </p> -->
