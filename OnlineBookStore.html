@@ -21,6 +21,8 @@
       <input type="number" name="" id="BookPrice" placeholder="Enter Book price">
       <input type="submit" name="" >
     </form>
+    <br><br>
+    <button id="get">Get Book Information</button>
 </body>
 <!-- Create constructor functions for Book and Author to represent books and authors.
 The Author constructor should take name, birthYear, and nationality as arguments.
@@ -75,12 +77,19 @@ Submit your GitHub link after completing the problem. -->
     let authDOB = document.getElementById("authorDOB").value
     let authNation = document.getElementById("authorNation").value
 
-    let author1 = new Author(authName,authDOB,authNation)
+    if(authName !=="" && authDOB !== "" && authNation !== "")
+    {
+      let author1 = new Author(authName,authDOB,authNation)
 
-    arr.push(author1)
-    console.log(author1)
+      arr.push(author1)
+      console.log(author1)
 
-    getform.reset();
+      getform.reset();
+    }
+    else{
+      alert(`something not typed`)
+    }
+    
    })
 
 
@@ -94,14 +103,28 @@ Submit your GitHub link after completing the problem. -->
     let boGenre = document.getElementById("BookGenre").value
     let boPrice = document.getElementById("BookPrice").value
 
-    let Book1 = new Book(arr[0],boName,boGenre,boPrice)
+    if(boGenre !== "" && boName !== "" && boPrice !== "")
+    {
+      let Book1 = new Book(boName,boGenre,boPrice)
     
-    arr = [];
+        arr = [];
 
-    console.log(Book1)
-    
+        console.log(Book1)
+        getform2.reset();
+    }
+    else{
+      alert(`something not typed`)
+    }
     // getform2.reset();
    })
 
+   let btn = document.getElementById("get")
+
+   btn.addEventListener("click",function(e)
+   {
+    e.preventDefault();
+
+    arr
+   })
 </script>
 </html>
