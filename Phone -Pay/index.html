@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <div>
+        <p>Enter Your Amount </p>
+        <input type="text" name="" id="money" placeholder="Amount">
+        <button id="send">Send</button>
+    </div>
+
+    <div id="output"></div>
+</body>
+
+<script>
+
+
+
+    document.getElementById("send").addEventListener("click",function(e)
+    {
+       if(document.getElementById("money").value !== "")
+       {
+        e.preventDefault;
+
+        let ranNum = Math.floor(Math.random() * 10)
+        let ranTime = ranNum*1000;
+            
+
+        document.getElementById("output").textContent = `Payment Processing`
+
+
+        setTimeout(function()  {
+            new Promise(function(resolve,rejected)
+            {
+                resolve("Payment Succesful")
+                rejected("Payment Unsuccesful")
+            }).then(responce => {
+                let divi = document.getElementById("output")
+                let amount = document.getElementById("money")
+
+                divi.textContent = `${amount.value} Sending  Succesfully`;
+            }).catch(error => {
+                document.getElementById("output").textContent = "Payment is Unsuccesful";
+            })
+        }, ranTime);
+            }
+
+           
+     })
+  
+</script>
+
+
+
+</html>

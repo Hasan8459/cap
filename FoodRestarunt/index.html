@@ -5,66 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #hidden{
+        display: none;
+    }
+    img{
+        width: 40px;
+    }
+</style>
 <body>
-    <!-- <p><div>
-        <input type="checkbox" id="dalbhati" name="dalbhati" />
-        <label for="dalbhati">Dal-Bhati</label>
-    </div>
 
-    <div>
-        <input type="checkbox" id="modak" name="modak" />
-        <label for="modak">Modak</label>
-    </div></p> -->
-    <!-- <p>Create a button called 'Order Food'. Create a checkbox of multiple food items you can choose from.
-        When a user clicks on order food, create a promise that will resolve after random seconds.
-        Once the promise is resolved, show the image of the food in the centre and show the order id on the top right corner.
-        Try to make your virtual restaurant as real as possible.</p> -->
-    <button>Order Food</button>
-        <img src=" https://th.bing.com/th?id=ODL.10657e4f5cd1dff53541e9251c4e50e2&w=197&h=112&c=7&rs=1&qlt=80&o=6&dpr=1.3&pid=RichNav;" />
     <fieldset>
-        <legend>Choose your favourite dish :</legend>
-      
+       <h2>Menu Card of MC Donald</h2>
         <div>
+          <img src="https://th.bing.com/th?id=ODL.10657e4f5cd1dff53541e9251c4e50e2&w=197&h=112&c=7&rs=1&qlt=80&o=6&dpr=1.3&pid=RichNav;"" alt="pasta">
           <input type="checkbox" onclick="past()" id="pasta" name="pasta"  />
           <label for="pasta">Pasta</label>
         </div>
       
         <div>
+          <img src="https://th.bing.com/th?id=OIP.RWaaZCnAJwE8O0FxwD7y0AHaEo&w=316&h=197&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
           <input type="checkbox" id="pizza" name="pizza" />
           <label for="pizza">Pizza</label>
         </div>
 
+        <div>
+        <img src="https://th.bing.com/th?id=OIP.rTm6KJn12iExbeLzYWdI5gHaD4&w=345&h=181&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+        <input type="checkbox" id="dalbhati" name="dalbhati" />
+        <label for="dalbhati">Dal-Bhati</label>
+        </div>
+
+         <div>
+        <img src="https://th.bing.com/th?id=OIP.t9eazBqBPDKYkdzYH6C9YAHaGr&w=263&h=237&c=8&rs=1&qlt=90&o=6&dpr=1.3&pid=3.1&rm=2" alt="">
+        <input type="checkbox" id="modak" name="modak" />
+        <label for="modak">Modak</label>
+         </div></p> 
         
+         <button onclick="start()">Order Food</button>
       </fieldset>
       <div id="show"></div>
+
+      <div class="order-complete" id="hidden">
+        <h2>order completed</h2>
+        <p>Your order is <span id="order-number">12345</span></p>
+      </div>
       
 </body>
 
 <script>
 
-
-let pasta = document.getElementById("pasta")
-
-function pas()
+function start()
 {
-    return new Promise(function(resolve, reject) {
-        setTimeout( function ()  {
-           resolve( { mesg :"Dish is ready"}) 
-        }, 5000);
-    })
+     let ranNum = (Math.floor(Math.random() * 10) )
+    let ranTime = ranNum*1000
+    setTimeout(function() {
+       
+         new Promise(function(resolve,reject)
+         {
+            document.getElementById("hidden").style.display = "block"
+            resolve("promise resolved")
+
+         }).then(res =>{
+            let idchange = document.getElementById("order-number")
+            idchange.textContent = Math.floor(Math.random() * 1000)+1
+         })
+        
+    }, ranTime);
 }
 
 
-pas()
-.then(function(info)
-{
-    console.log(info)
-    // let di = document.getElementById("show")
-    // let image = document.createElement("img")
-    // image.src = https://th.bing.com/th?id=ODL.10657e4f5cd1dff53541e9251c4e50e2&w=197&h=112&c=7&rs=1&qlt=80&o=6&dpr=1.3&pid=RichNav;
 
-    // di.append(image)
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// let pasta = document.getElementById("pasta")
+
+// function past()
+// {
+//     return new Promise(function(resolve, reject) {
+//         setTimeout( function ()  {
+//            resolve( { mesg :"Dish is ready"}) 
+//         }, 5000);
+//     })
+// }
+
+
+// pas()
+// .then(function(info)
+// {
+//     console.log(info)
+//     // let di = document.getElementById("show")
+//     // let image = document.createElement("img")
+//     // image.src = https://th.bing.com/th?id=ODL.10657e4f5cd1dff53541e9251c4e50e2&w=197&h=112&c=7&rs=1&qlt=80&o=6&dpr=1.3&pid=RichNav;
+
+//     // di.append(image)
+// })
   
 </script>
 
