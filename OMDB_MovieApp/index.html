@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" name="name" id="name" placeholder="Search a Movie">
+    <button id="search">Search</button>
+    <div id="cont"></div>
+</body>
+<style>
+/* //  https://omdbapi.com/?apikey=3a338386&s=matrix
+//   Poster
+// : 
+// "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg"
+// Title
+// : 
+// "The Matrix"
+// Type
+// : 
+// "movie"
+// Year
+// : 
+// "1999"
+// imdbID
+// : 
+// "tt0133093" */
+    #cont{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+</style>
+<script>
+    let MyKey = "3a338386"
+    let link = "https://omdbapi.com/?apikey="
+
+    let input = document.getElementById("name")
+
+    let btn = document.getElementById("search")
+    btn.addEventListener("click",function(e)
+    {
+        e.preventDefault();
+
+        if(name.value !== "")
+        {
+            let URL = `${link}${MyKey}&s=${input.value}`
+            fetch(URL)
+            .then(function(res)
+            {
+                return res.json();
+            })
+            .then(function(obj)
+            {
+                console.log(obj.Search)
+                 ShowResult(obj.Search)
+            })
+            .catch(function(err)
+            {
+                console.log(err)
+            })
+        }
+    })
+
+ 
+
+
+      let divcont = document.getElementById("cont")  
+
+  function ShowResult(arr)
+  {
+        arr.forEach(element => {
+
+        let div = document.createElement("div")
+
+        let img = document.createElement("img")
+            img.src = element.Poster
+
+        let name = document.createElement("p")
+            name.textContent = element.Title
+
+        let yea = document.createElement("p")
+            yea.textContent = element.Year
+
+        // let imdb = document.createElement("p")
+        //     imdb.textContent = element.imdbID;
+
+        let butten = document.createElement("button")
+        butten.textContent = "Movie Details"
+
+        butten.addEventListener("click",function(e)
+        {
+            localStorage.setItem("imdbID",element.imdbID)
+
+            location.href = "DetailsOfMovie.html"
+
+
+        })
+
+        div.append(img,name,yea,butten)
+        divcont.append(div)
+
+        }); 
+        
+    
+  }
+</script>
+
+</html>

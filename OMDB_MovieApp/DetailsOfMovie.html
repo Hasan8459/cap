@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #cont{
+        justify-content: center;
+    }
+</style>
+<body>
+    <h2>Movie Details</h2>
+    <div id="container"></div>
+    
+</body>
+<script>
+    let MyKey = "3a338386"
+    let link = "https://omdbapi.com/?apikey="
+    let id = localStorage.getItem("imdbID")
+
+    let UrL = `${link}${MyKey}&i=${id}`
+    //let URL = `${link}${MyKey}&s=${input.value}`
+
+    fetch(UrL)
+    .then(function(resp)
+    {
+        return resp.json();
+    })
+    .then(function(object)
+    {
+        console.log(object)
+        get(object)
+    })
+    .catch(function(error)
+    {
+        console.log(error)
+    })
+
+let cont = document.getElementById("container")
+    function get(obj)
+    {
+        let div = document.createElement("div")
+
+        let p1 = document.createElement("p")
+        p1.textContent = obj.Title;
+
+        let p2 = document.createElement("p")
+        p2.textContent = obj.Year;
+
+        let p3 = document.createElement("p")
+        p3.textContent = obj.Rated;
+
+        let p4 = document.createElement("p")
+        p4.textContent = obj.Released;
+
+        let p5 = document.createElement("p")
+        p5.textContent = obj.Genre;
+
+        let p6 = document.createElement("p")
+        p6.textContent = obj.Director;
+
+        // let p7 = document.createElement("div")
+        // p7.textContent = obj.Released;
+
+        let p8 = document.createElement("p")
+        p8.textContent = obj.Writer;
+
+        let p9 = document.createElement("p")
+        p9.textContent = obj.Actors;
+
+        let p10 = document.createElement("p")
+        p10.textContent = obj.Plot;
+
+        let p11= document.createElement("p")
+        p11.textContent = obj.Language;
+
+        let p12 = document.createElement("p")
+        p12.textContent = obj.Country;
+
+        let p13 = document.createElement("p")
+        p13.textContent = obj.Awards;
+
+        let p14 = document.createElement("img")
+        p14.src = obj.Poster;
+
+        let p15 = document.createElement("p")
+        p15.textContent = obj.Metascore;
+
+        let p16 = document.createElement("p")
+        p16.textContent = obj.imdbRating;
+
+        let p17 = document.createElement("p")
+        p17.textContent = obj.imdbVotes;
+
+        let p18 = document.createElement("p")
+        p18.textContent = obj.imdbID;
+
+        let p19 = document.createElement("p")
+        p19.textContent = obj.Type
+
+        let p20 = document.createElement("p")
+        p20.textContent = obj.totalSeasons;
+
+       div.append(p14,p1,p2,p3,p4,p5,p6,p8,p9,p10,p11,p12,p13)
+       cont.append(div) 
+    }
+</script>
+<script>{
+    // "Title": "Matrix",
+    // "Year": "1993",
+    // "Rated": "N/A",
+    // "Released": "01 Mar 1993",
+    // "Runtime": "60 min",
+    // "Genre": "Action, Drama, Fantasy",
+    // "Director": "N/A",
+    // "Writer": "Grenville Case",
+    // "Actors": "Nick Mancuso, Phillip Jarrett, Carrie-Anne Moss",
+    // "Plot": "Steven Matrix is one of the underworld's foremost hitmen until his luck runs out, and someone puts a contract out on him. Shot in the forehead by a .22 pistol, Matrix \"dies\" and finds himself in \"The City In Between\", where he is ...",
+    // "Language": "English",
+    // "Country": "Canada",
+    // "Awards": "1 win",
+    // "Poster": "https://m.media-amazon.com/images/M/MV5BYzUzOTA5ZTMtMTdlZS00MmQ5LWFmNjEtMjE5MTczN2RjNjE3XkEyXkFqcGdeQXVyNTc2ODIyMzY@._V1_SX300.jpg",
+    // "Ratings": [
+    //     {
+    //         "Source": "Internet Movie Database",
+    //         "Value": "7.8/10"
+    //     }
+    // ],
+    // "Metascore": "N/A",
+    // "imdbRating": "7.8",
+    // "imdbVotes": "201",
+    // "imdbID": "tt0106062",
+    // "Type": "series",
+    // "totalSeasons": "N/A",
+    // "Response": "True"
+}</script>
+</html>
