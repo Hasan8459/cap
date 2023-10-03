@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+   #cont{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+   }
+   .div1{
+    width:200px;
+    height: auto;
+    //border: 2px solid red;
+    margin-top: 20px;
+   }
+   img{
+    width: 200px;
+    height: 200px;
+   }
+</style>
+<body>
+   <div id="navbar">
+
+        <input type="text" name="inputtyped" id="inputtyped" placeholder="Search whatever you want">
+
+        <button id="search">Search</button>
+   
+    <select id="selectproduct">
+        <option value="sort">Sort</option>
+        <option value="men"> Men's Clothing</option>
+        <option value="women">Women's Clothing</option>
+        <option value="jewellery">Jewellery</option>
+        <option value="electronics">Electronics</option>
+      </select>
+ 
+   </div>
+   
+   <div id="cont">
+
+   </div>
+  
+</body>
+<script>
+
+// let btn = document.getElementById("search")
+
+// btn.addEventListener("click",function(e)
+// {
+//     e.preventDefault();
+    
+//     let searchText = document.getElementById("inputtyped")
+
+//     if(searchText.innerText !== "")
+//     {
+//         console.log(searchText.innerText)
+//     }
+// })
+
+async function init()
+{
+    try {
+        
+        let res = await fetch("https://fakestoreapi.com/products")
+        let data = await res.json()
+        showAllData(data)
+
+
+    } catch (error) {
+        console.log(error)
+    }
+
+}
+
+init()
+
+let container = document.getElementById("cont")
+
+function showAllData(data)
+{
+   data.forEach((ele) => {
+   // console.log(ele.title)
+    let div1 = document.createElement("div")
+        div1.className = "div1"
+
+    let img1 = document.createElement("img")
+        img1.src = `${ele.image}`
+
+    let prize = document.createElement("h4")
+        prize.textContent = `$ ${ele.price}`
+
+    let cate = document.createElement("p")
+        cate.textContent = ele.category
+
+    let title = document.createElement("p")
+        title.textContent = ele.title
+
+        div1.append(img1,prize,cate,title)
+        container.append(div1)
+   });
+}
+
+let sort = document.getElementById("selectproduct")
+
+sort.addEventListener("change",function(e)
+{
+    e.preventDefault();
+
+    showAllData()
+})
+</script>
+</html>

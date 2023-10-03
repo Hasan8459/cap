@@ -11,24 +11,16 @@
         text-align: center;
     }
 </style>
+
 <body>
    <div id="cont">
-    <br><br><br><br><br><br><br>
-    <input type="time" name="time" id="time">
-    <br><br><br>
-    <button onclick="start()">Start</button>
-   </div>
+   <input type="number"  name="hours" id="hours" placeholder="Hours">
+   <input type="number" name="minutes" id="minutes" placeholder="Minutes">
+   <input type="number" name="seconds" id="seconds"placeholder="Seconds">
+   </div><br>
+   <button id="start">Start</button>
+   <button id="pause">Pause</button>
+   <button id="reset">Reset</button>
 </body>
-<script>
-
-    let timing = document.getElementById("time")
-
-
-    function start()
-    {
-        setInterval(
-            decrease()
-        )
-    }
-</script>
+<script src="index.js"></script>
 </html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+ <!-- Accept a city name and find the weather data for that city
+Show the map of that entered city on right hand side
+Show the weather details of that city on Left hand side. Show min temp, max temp, wind, clounds, sunrise, sunset etc.
+Use logos or icons while showing the data. ( you can show logo of sunrise, sunset etc ) Searchbar should be on top. -->
+<div>
+    <input type="text" name="city" id="city" placeholder="Search About cities">
+    <button id="Search">Search</button>
+</div>
+<br><br>
+<div>
+    
+</div>
+
+</body>
+<script>
+    async function init()
+    {
+        let res = await fetch("wheatherdata") //fetch("http://d7c899a81c50cac02ff70e3584006294")
+        let data = await res.json()
+        console.log(data)
+    }
+
+    init()
+</script>
+</html>
