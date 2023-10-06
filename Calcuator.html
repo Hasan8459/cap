@@ -75,9 +75,11 @@
       } )
     }
 
-    equltogot.addEventListener("click",function()
+    equltogot.addEventListener("click",function(e)
     {
-      answergot.value = Number(inputgot.value)
+      e.preventDefault()
+      let ans = Number(inputgot.value)
+      answergot.value = ans
     })
 
 </script>
