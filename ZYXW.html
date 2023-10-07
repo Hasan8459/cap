@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #forecasting{
+       width: 100px;
+        display:flex ;
+        grid-template-columns: repeat(7,1fr);
+        
+       
+    }
+    .sevenDay{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <input type="text" name="" id="input">
+    <button>search</button>
+    <div id="forecasting"></div>
+</body>
+<script>
+
+    let API = "d7c899a81c50cac02ff70e3584006294"
+    let lon = 76.5833//44.34 //73.8553
+    let lat = 18.4// 10.99 //18.5196
+    let city = "Pune"
+   
+async function Forecast()
+{
+   try {
+    let res = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API}`) 
+    let data = await res.json()
+        
+   startForecast(data)
+
+   //console.log(data)
+
+   } catch (error) {
+    console.log("Something Wrong in FORECAST API ")
+   }
+}
+
+Forecast()
+
+let conn = document.getElementById("forecasting")
+
+function startForecast(ele)
+{
+    console.log(ele)
+    console.log(ele.list[0].main)
+   
+    // let div3 = document.createElement("div")
+    //     div3.id = "third"
+
+    for(let i=0; i<7; i++)
+    {
+        let date = new Date((ele.list[i].dt)*1000).toLocaleDateString()
+        let div4 = document.createElement("div")
+            div4.className = "sevenDay"
+            div4.innerHTML = `  <h4>${date}</h4>
+                                <h2>${ele.list[i].main.feels_like} C </h2>
+                                <h4>Max-Temp:${ele.list[i].main.temp_max} C</h4>
+                                <h4>Min-Temp:${ele.list[i].main.temp_min} C</h4>`
+
+            conn.append(div4)
+       
+    }
+        //conn.append(div3)
+}
+
+</script>
+</html>

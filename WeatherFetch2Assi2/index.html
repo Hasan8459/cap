@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .li{
+        width: 50%;
+    }
+    img{
+        width: 40px;
+        height: 40px;
+    }
+    #div{
+        width: 50%;
+    }
+    #div2{
+        width: 50%;
+    }
+    #first{
+        margin: 80px 20px 20px 120px;
+    }
+    #forecasting{
+        display: grid;
+        grid-template-columns: repeat(7,1fr);
+        background-color: rgb(225, 86, 109);
+    }
+    .sevenDay{
+        border: 1px silver;
+    }
+</style>
+<body>
+<div>
+    <input type="text" name="city" id="city" placeholder="Search About cities">
+    <button id="Search">Search</button>
+    <button id="forecast">ForeCast</button>
+   
+</div>
+<br><br>
+
+<div id="container"></div>
+<div id="forecasting"></div>
+</body>
+<script src="index.js">
+    //API KEY = ("http://d7c899a81c50cac02ff70e3584006294")
+    //Location api key 6e89f16bda27d4433312bf30e61b843f
+   // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+
+   
+</script>
+</html>
