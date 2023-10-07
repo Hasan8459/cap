@@ -5,29 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    #container{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .li{
+        width: 50%;
+    }
+</style>
 <body>
- <!-- Accept a city name and find the weather data for that city
-Show the map of that entered city on right hand side
-Show the weather details of that city on Left hand side. Show min temp, max temp, wind, clounds, sunrise, sunset etc.
-Use logos or icons while showing the data. ( you can show logo of sunrise, sunset etc ) Searchbar should be on top. -->
 <div>
     <input type="text" name="city" id="city" placeholder="Search About cities">
     <button id="Search">Search</button>
 </div>
 <br><br>
-<div>
-    
-</div>
 
+<div id="container"></div>
 </body>
-<script>
-    async function init()
-    {
-        let res = await fetch("wheatherdata") //fetch("http://d7c899a81c50cac02ff70e3584006294")
-        let data = await res.json()
-        console.log(data)
-    }
+<script src="index.js">
+    //API KEY = ("http://d7c899a81c50cac02ff70e3584006294")
+    //Location api key 6e89f16bda27d4433312bf30e61b843f
+   // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 
-    init()
+   
 </script>
 </html>

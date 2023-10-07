@@ -6,18 +6,16 @@
     <title>Document</title>
 </head>
 <style>
-    #cont{
-        /* width: 100%;
-        height: 100%;
-        display: grid; 
-        grid-template-columns:repeat(3,1fr); */
-        border: 1px solid red;
-
-    }
+   
     .child{
         border: 1px solid yellow;
         margin-top:10px;
         margin-bottom: 10px;
+    }
+    
+    table,th,td{
+        border: 1px solid black;
+        border-collapse: collapse;
     }
 </style>
 <body>
@@ -44,6 +42,7 @@ showAll();
 let container = document.getElementById("cont")
 
 let bodyofhtml = document.createElement("table")
+    //.style.border = 1px solid black;
 let headRow = document.createElement("thead")
 let td1 = document.createElement("td")
     td1.textContent ="ID"
