@@ -59,8 +59,9 @@
     {
       bodmasgot[j].addEventListener("click",function()
       {
-        let leng = inputgot.length;
-        let check = inputgot[leng-1]
+        let leng = Number(inputgot.value.length)-1;
+        let check = inputgot.value[leng]
+        console.log(check)
         
       if(check != "+" || check != "-" || check != "*" || check != "/")
       {
