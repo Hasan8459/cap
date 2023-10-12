@@ -24,35 +24,39 @@
     let MyKey = "3a338386"
     let link = "https://omdbapi.com/?apikey="
 
-    let input = document.getElementById("name")
-
-    let btn = document.getElementById("search")
-    btn.addEventListener("click",function(e)
+    function debounce(func,delay)
     {
-        e.preventDefault();
+      let timer;
+    
+      function inner(inp)
+      {
+        clearTimeout(timer)
+        timer = setTimeout(function() {
+            func(inp)  
+            //console.log(inp)
+        }, delay);
+      }  
+      return inner;
+    }
 
-        if(name.value !== "")
-        {
-            let URL = `${link}${MyKey}&s=${input.value}`
-            fetch(URL)
-            .then(function(res)
-            {
-                return res.json();
-            })
-            .then(function(obj)
-            {
-                console.log(obj.Search)
-                 ShowResult(obj.Search)
-                 
-            })
-            .catch(function(err)
-            {
-                console.log(err)
-            })
-        }
+    let deboucingSearch = debounce(getdata,2000)
+
+    let input = document.getElementById("name")
+    input.addEventListener("input",function(e)
+    {
+        e.preventDefault()
+       let value = input.value
+        deboucingSearch(value)
     })
 
- 
+   async function getdata(searchingvalue)
+    {
+        let res = await fetch(`${link}${MyKey}&s=${searchingvalue}`)
+        let data = await res.json()
+        ShowResult(data.Search)
+        //console.log(data.Search)
+       
+    }
 
 
       let divcont = document.getElementById("cont")  

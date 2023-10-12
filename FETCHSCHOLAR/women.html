@@ -32,13 +32,13 @@
 
         <button id="search">Search</button>
    
-    <select id="selectproduct">
-        <option value="sort"><a href="index.html">Sort</a></option>
-        <a href="man.html"><option value="men"> Men's Clothing</option></a>
-        <option value="women"><a href="women.html">Women's Clothing</a></option>
-        <option value="jewellery"><a href="jwellery.html">Jewellery</a></option>
-        <option value="electronics"><a href="electronics.html">Electronics</a></option>
-      </select>
+        <select id="selectproduct">
+            <option value="sort"><a href="index.html">Sort</a></option>
+            <option value="men"><a href="man.html"> Men's Clothing</a></option>
+            <option value="women"><a href="women.html">Women's Clothing</a></option>
+            <option value="jewellery"><a href="jwellery.html">Jewellery</a></option>
+            <option value="electronics"><a href="electronics.html">Electronics</a></option>
+          </select>
  
    </div>
    <div id="secondNavbar">
@@ -55,7 +55,7 @@
   
 </body>
 <script>
-let consume
+
 let btn = document.getElementById("search")
 
 btn.addEventListener("click",function(e)
@@ -65,28 +65,6 @@ btn.addEventListener("click",function(e)
     let searchText = document.getElementById("inputtyped").innerText
 
     console.log(searchText)
-    consume.forEach((ele)=>{
-        if(ele.title == searchText)
-        {
-            let div1 = document.createElement("div")
-            div1.className = "div1"
-
-             let img1 = document.createElement("img")
-             img1.src = `${ele.image}`
-
-            let prize = document.createElement("h4")
-                prize.textContent = `$ ${ele.price}`
-
-            let cate = document.createElement("p")
-                cate.textContent = ele.category
-
-            let title = document.createElement("p")
-            title.textContent = ele.title
-
-            div1.append(img1,prize,cate,title)
-            container.append(div1)
-        }
-    })
     // if(searchText.innerText !== "")
     // {
     //     console.log(searchText.innerText)
@@ -101,8 +79,6 @@ async function init()
         let res = await fetch("https://fakestoreapi.com/products")
         let data = await res.json()
         showAllData(data)
-        comsume = data;
-        console.log(consume)
 
 
     } catch (error) {
@@ -118,7 +94,9 @@ let container = document.getElementById("cont")
 function showAllData(data)
 {
    data.forEach((ele) => {
-    //console.log(ele)
+   // console.log(ele.title)  
+   if(ele.category === "women's clothing")
+   {
     let div1 = document.createElement("div")
         div1.className = "div1"
 
@@ -136,9 +114,17 @@ function showAllData(data)
 
         div1.append(img1,prize,cate,title)
         container.append(div1)
+   }
    });
 }
 
+// let sort = document.getElementById("selectproduct")
 
+// sort.addEventListener("change",function(e)
+// {
+//     e.preventDefault();
+
+//     showAllData()
+// })
 </script>
 </html>
